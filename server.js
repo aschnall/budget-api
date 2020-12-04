@@ -53,7 +53,7 @@ app.put('/reset', (req, res) => { reset.handleReset(req, res, db) });
 app.put('/delete', (req, res) => { deleteItem.handleDelete(req, res, db) });
 
 
-app.listen(3001, function() {
-	console.log('i am working')
+app.listen(process.env.PORT || 3001, function() {
+	console.log(`app is running on port ${process.env.PORT}`);
 })
 
