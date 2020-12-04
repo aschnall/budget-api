@@ -3,7 +3,7 @@
 const handleReset = async (req, res, db) => {
 	const { user_id } = req.body;
 	try {
-		const resetData = await db('transactions').where('user_id', user_id).del();
+		const resetData = await db('transactions').where('id', user_id).del();
 		res.json(resetData);
 	} catch {
 		res.status(404).json('error')

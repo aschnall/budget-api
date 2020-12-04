@@ -4,9 +4,9 @@ const handleSubmit = async (req, res, db) => {
 	const { amount, description, type, date, user_id } = req.body;
 	try {
 		const newTransaction = await db('transactions').insert({
-			amount: amount, description: description, type: type, date: date, user_id: user_id
+			amount: amount, description: description, type: type, date: date, id: user_id
 		});
-		const transactions = await db('transactions').where('user_id', user_id);
+		const transactions = await db('transactions').where('id', user_id);
 		res.json(transactions);
 	} catch {
 		res.status(404).json('unable to fetch data');
