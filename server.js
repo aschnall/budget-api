@@ -26,6 +26,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+app.get('/', (req, res) => { res.send('it is working') });
+
 // get request responding with user's pre-existing transaction data immediately upon logging in
 app.get('/:user_id', async (req, res) => {
 	const { user_id } = req.params
