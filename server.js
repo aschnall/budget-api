@@ -32,7 +32,7 @@ app.get('/', (req, res) => { res.send('it is working') });
 app.get('/:user_id', async (req, res) => {
 	const { user_id } = req.params
 	try {
-		const database = await db('transactions').where('user_id', user_id);
+		const database = await db('transactions').where('id', user_id);
 		res.json(database);
 	} catch {
 		res.status(404).json('unable to get data');
